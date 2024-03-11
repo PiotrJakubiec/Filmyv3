@@ -1,0 +1,30 @@
+﻿@using Filmy.Models
+@model Filmy.Models.Result
+@{
+    var rezultaty = ViewData["Rezultaty"] as Root;
+    Layout = null;
+}
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Details</title>
+    </style>
+</head>
+<body>
+    <div class="movie-grid">
+    @foreach (var item in rezultaty.results)
+    {
+            <div class="movie-tile">
+                <div class="movie-title">@item.title (@item.release_date.Split('-')[0])</div>
+            <div class="movie-detail">Data premiery: @item.release_date</div>
+            <div class="movie-detail">Gatunek: @string.Join(", ", item.genre_ids)</div>
+            <div class="movie-detail">Tytuł oryginalny: @item.original_title</div>
+            <div class="movie-detail">Opis: @item.overview</div>
+            </div>
+
+        }
+    </div>
+</body>
+</html>

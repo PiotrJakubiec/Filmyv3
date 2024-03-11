@@ -1,0 +1,54 @@
+﻿body {
+    background-color: #343942; /* Darker background for the page */
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.movie-tile {
+    background-color: #1a1a1a; /* Dark background */
+    color: #ffffff; /* White text */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    transition: all 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+    .movie-tile:hover {
+        transform: scale(1.05); /* Scale up the tile slightly on hover */
+        background-color: #17202a; /* Darker background on hover */
+    }
+
+    .movie-tile::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+        z-index: 1;
+        opacity: 1; /* Show overlay by default */
+    }
+
+.movie-title {
+    font-weight: bold;
+    z-index: 2;
+}
+
+.movie-detail {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    max-height: none; /* Show all content */
+}
+
+.movie-detail {
+    display: block;
+}
